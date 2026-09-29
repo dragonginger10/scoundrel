@@ -1,0 +1,32 @@
+.decks {
+  width: 1fr;
+  padding: 2;
+  margin: 2;
+}
+
+.play {
+  width: 3fr;
+  max-height: 60;
+  padding: 2;
+  margin: 1;
+}
+
+Log { 
+  height: 25%; 
+  display: none;
+}
+
+.game-controls Button {
+  margin: 1;
+}
+
+.card {
+  height: 20;
+  width: 25;
+  padding: 1;
+  margin: 1;
+}
+
+#health {
+  text-align: right;
+}

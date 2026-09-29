@@ -1,0 +1,5 @@
+/.direnv
+/scoundrel/__pycache__
+/scoundrel/cards/__pycache__
+/scoundrel/tui/__pycache__
+/scoundrel.log
