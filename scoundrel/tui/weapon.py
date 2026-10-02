@@ -6,22 +6,6 @@ from scoundrel.cards.card import Card
 
 
 class WeaponSlot(Container):
-    DEFAULT_CSS = """
-    WeaponSlot {
-      layers: below above;
-      align: center middle;
-    }
-
-    #weapon {
-      layer: below;
-    }
-
-    #rating {
-      layer: above;
-      opacity: 70%;
-      offset-x: 8;
-    }
-    """
     def __init__(self) -> None:
         self.card: None | Card = None
         self.damage: None | Card = None
@@ -31,12 +15,10 @@ class WeaponSlot(Container):
         if self.card is None:
             yield Image()
         else:
-            yield self.card.image()
-            self.card.image().id = "weapon"
+            yield self.card.image("weapon")
 
         if self.damage:
-            self.damage.image().id = "rating"
-            yield self.damage.image()
+            yield self.damage.image("rating")
 
     def set_weapon(self, card: Card) -> None:
         self.card = card

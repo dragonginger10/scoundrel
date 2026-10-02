@@ -3,11 +3,12 @@ from collections.abc import Generator
 
 from scoundrel.cards.card import Card, Names, Suits
 
+type Hand = list[Card]
 
 class Deck:
     def __init__(self) -> None:
-        self.cards: list[Card] = self._create_deck()
-        self.discard_pile: list[Card] = []
+        self.cards: Hand = self._create_deck()
+        self.discard_pile: Hand = []
 
     def __repr__(self) -> str:
         return f"Deck({len(self.cards)} of cards in deck)"
@@ -15,8 +16,8 @@ class Deck:
     def __len__(self) -> int:
         return len(self.cards)
 
-    def _create_deck(self) -> list[Card]:
-        cards: list[Card] = []
+    def _create_deck(self) -> Hand:
+        cards: Hand = []
         for suit in Suits:
             if suit == Suits.DIAMOND or suit == Suits.HEART:
                 cards.extend([Card(name, suit) for name in Names if name.value <= 10])
@@ -43,6 +44,6 @@ class Deck:
     def discard(self, card: Card) -> None:
         self.discard_pile.append(card)
 
-    def run(self, cards: list[Card]) -> Generator[Card]:
+    def run(self, cards: Hand) -> Generator[Card]:
         map(self.discard, cards)
         return self.draw(4)

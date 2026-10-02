@@ -62,11 +62,11 @@ class Card:
         s = self.suit.name[0]
         return v + s
 
-    def image(self):
+    def image(self, id: str | None = None):
         p = Path(__file__).parent / "imgs"
         img = p / f"{self.code()}.png"
 
-        return Image(img)
+        return Image(img, id=id)
 
 
 def back() -> Path:
