@@ -1,0 +1,43 @@
+Screen {
+  align: center top;
+}
+
+#game-controls {
+  height: auto;
+  align: center middle;
+}
+
+#game-controls Button {
+  margin: 1 5;
+}
+
+#room {
+  margin: 2;
+}
+
+CardWidget {
+  height: auto;
+  align-horizontal: right;
+  margin: 1;
+  padding: 1;
+}
+
+CardWidget Button {
+  margin: 1;
+  width: 100%;
+  height: auto;
+}
+
+Image {
+  height: auto;
+  width: auto;
+  margin: 1 5;
+}
+
+#attack {
+  display: none;
+}
+
+WeaponSlot {
+  margin: 2;
+}

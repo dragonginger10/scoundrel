@@ -25,15 +25,17 @@ class Scoundrel(App):
 
     def compose(self) -> ComposeResult:
         """Create child widgets for the app."""
-        with HorizontalGroup(classes="game-controls"):
+        with HorizontalGroup(id="game-controls"):
             yield Button("New Game")
             yield Button("Run", id="run")
-            # yield Digits(self.life, id="health") TODO: Make this work with int
+            yield Digits("20", id="health") # TODO: Make this work with int
         room: Generator[Card] = self.deck.draw(self.slots)
-        with HorizontalGroup():
+        with HorizontalGroup(id="room"):
             for card in room:
                 logger.debug(card)
-                yield CardWidget(card)
+                yield CardWidget(card, self.deck)
+        # with HorizontalGroup(id="weapons"):
+        yield WeaponSlot()
 
     def on_button_pressed(self) -> None:
         if self.slots == 1:
