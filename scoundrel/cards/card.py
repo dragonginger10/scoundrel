@@ -51,6 +51,37 @@ class Card:
     def __str__(self) -> str:
         return f"The {self.value} of {self.suit}s"
 
+    def __lt__(self, other) -> bool:
+        if type(other) != Card:
+            raise NotImplementedError
+        return self.value < other.value
+
+    def __le__(self, other) -> bool:
+        if type(other) != Card:
+            raise NotImplementedError
+        return self.value <= other.value
+
+    def __eq__(self, other) -> bool:
+        if type(other) != Card:
+            raise NotImplementedError
+        return self.value == other.value
+
+    def __ne__(self, other) -> bool:
+        if type(other) != Card:
+            raise NotImplementedError
+        return self.value != other.value
+
+    def __gt__(self, other) -> bool:
+        if type(other) != Card:
+            raise NotImplementedError
+        return self.value > other.value
+
+    def __ge__(self, other) -> bool:
+        if type(other) != Card:
+            raise NotImplementedError
+        return self.value >= other.value
+
+
     def _get_type(self) -> CardTypes:
         match self.suit:
             case Suits.HEART: return CardTypes.POTION
